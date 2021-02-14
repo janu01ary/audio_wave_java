@@ -1,3 +1,4 @@
+import java.awt.BorderLayout;
 import java.awt.Frame;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
@@ -10,6 +11,12 @@ public class MyFrame extends Frame {
 				System.exit(0);
 			}
 		});
+		
+		this.setLayout(new BorderLayout());
+		this.setResizable(false);
+		
+		MyPanel panel = new MyPanel();
+		this.add(panel, BorderLayout.CENTER);
 	}
 
 }
