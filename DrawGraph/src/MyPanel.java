@@ -37,6 +37,10 @@ public class MyPanel extends Panel {
 		}
 	}
 	
+	public void clearGraph() {
+		graph = null;
+	}
+	
 	public void drawAxis(Graphics g) {
 		//draw edge line
 		g.drawLine(0, 0, 0, y);
