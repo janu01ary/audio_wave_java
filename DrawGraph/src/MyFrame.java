@@ -41,29 +41,34 @@ public class MyFrame extends Frame {
 		Label l4 = new Label("x +");
 		
 		Button button = new Button("Set");
+		Button btnClear = new Button("Clear");
 		
 		//component add
 		panel.add(l1); panel.add(t1);
 		panel.add(l2); panel.add(t2);
 		panel.add(l3); panel.add(t3);
 		panel.add(l4); panel.add(t4);
-		panel.add(button);
+		panel.add(button); panel.add(btnClear);
 		
 		//listener
 		ActionListener actionListener = new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				myPanel.setGraph(new MyGraph(
-									Double.parseDouble(t1.getText()),
-									Double.parseDouble(t2.getText()),
-									Double.parseDouble(t3.getText()),
-									Double.parseDouble(t4.getText())									
-								));
+				if (e.getSource() == btnClear) {
+					myPanel.clearGraph();
+				} else {
+					myPanel.setGraph(new MyGraph(
+										Double.parseDouble(t1.getText()),
+										Double.parseDouble(t2.getText()),
+										Double.parseDouble(t3.getText()),
+										Double.parseDouble(t4.getText())									
+									));
+				}
 				myPanel.repaint();
 			}
 		};
 		button.addActionListener(actionListener);
-		
+		btnClear.addActionListener(actionListener);
 	}
 
 }
